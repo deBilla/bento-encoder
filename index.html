@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASH Video Player</title>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+</head>
+<body>
+  <h1>DASH Video Player</h1>
+  <div>
+    <video data-dashjs-player autoplay controls>
+      <source src="stream.mpd" type="application/dash+xml">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</body>
+</html>
