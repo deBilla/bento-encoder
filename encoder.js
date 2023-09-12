@@ -1,6 +1,9 @@
+const ffmpegStatic = require('ffmpeg-static');
 const ffmpeg = require("fluent-ffmpeg");
 const fs = require("fs");
 const { exec } = require("child_process");
+
+ffmpeg.setFfmpegPath(ffmpegStatic);
 
 const encode = () => {
   const inputVideoFile = "input.mp4";
