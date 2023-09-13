@@ -18,9 +18,6 @@ RUN git clone https://github.com/axiomatic-systems/Bento4.git /opt/Bento4 \
     && make -j4 \
     && make install
 
-# Set the working directory in the container
-WORKDIR /app
-
 # Copy the Node.js application source code into the container
 COPY . .
 
