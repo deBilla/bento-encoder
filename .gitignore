@@ -4,3 +4,5 @@ output_folder
 output_dash
 output_fragment
 input.mp4
+.env
+output

@@ -1,18 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DASH Video Player</title>
-  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.15.6/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-eme@3.9.0/dist/videojs-contrib-eme.min.js"></script>
+    <style>
+        .video-js, video {
+            width: 100%;
+            min-height: 640px;
+        }
+    </style>
+
 </head>
 <body>
-  <h1>DASH Video Player</h1>
-  <div>
-    <video data-dashjs-player autoplay controls>
-      <source src="stream.mpd" type="application/dash+xml">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+<div class="container">
+    <div class="row">
+    <video id="my-player" class="video-js" controls></video>
+</div>
+<script type="text/javascript">
+  (function() {
+    var player = videojs('my-player');
+
+    player.eme({
+      emeHeaders: {
+        'customdata': '<AUTH_XML>'
+      }
+    });
+
+    player.on('ready', function() {
+      var wvprDashSrc = {
+        src: 'stream.mpd',
+        type: 'application/dash+xml',
+        keySystems: {
+          'com.widevine.alpha': 'https://wv-keyos.licensekeyserver.com/'
+        }
+      };
+
+      player.src(wvprDashSrc);
+    });
+  })();
+</script>
 </body>
 </html>

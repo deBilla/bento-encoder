@@ -2,6 +2,7 @@ const ffmpegStatic = require("ffmpeg-static");
 const ffmpeg = require("fluent-ffmpeg");
 const fs = require("fs");
 const { exec } = require("child_process");
+require('dotenv').config()
 
 ffmpeg.setFfmpegPath(ffmpegStatic);
 
@@ -66,7 +67,7 @@ const fragmentVideo = (inputVideo, outputFolder) => {
 const dashEncodeVideo = (fragmentedFiles, outputDirectory) => {
   return new Promise((resolve, reject) => {
     const mpdOutputFile = `${outputDirectory}/stream.mpd`;
-    let mp4dashCommand = `mp4dash --output-dir=${outputDirectory}`;
+    let mp4dashCommand = `mp4dash --widevine-header ${process.env.CPIX_HEADER} --encryption-key=${process.env.KEY_ID}:${process.env.KEY} --output-dir=${outputDirectory}`;
 
     for (const fragmentedFile of fragmentedFiles) {
       mp4dashCommand = mp4dashCommand + ` ${fragmentedFile}`;
