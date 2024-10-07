@@ -1,0 +1,1 @@
+export const FOLDER_PERMISSION = 0o777;

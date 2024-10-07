@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",            // Output directory for compiled files
+    "rootDir": "./src",            // Root directory for source files
+    "module": "commonjs",          // Use 'commonjs' for Node.js or 'esnext' for modern JS
+    "target": "es6",               // ES6 is a common target, adjust if needed
+    "strict": true,                // Enable strict type checking
+    "esModuleInterop": true,       // For compatibility with CommonJS modules
+    "skipLibCheck": true,          // Skips type checking of declaration files for faster compilation
+    "noEmit": false,               // Ensures TypeScript compiles to JS
+    "sourceMap": true              // Generates `.map` files for debugging
+  },
+  "include": ["src/**/*"],         // Include all TypeScript files in the src directory
+  "exclude": ["node_modules"]      // Exclude unnecessary directories
+}
