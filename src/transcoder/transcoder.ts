@@ -49,7 +49,7 @@ export class Transcoder {
     return new Promise((resolve, reject) => {
       const strArr = transcodeMedia.split("/");
       const fragmentedVideoFile = `${this.fragmentedOutputPath}/fragmented_${strArr[1]}`;
-      const mp4fragmentCommand = `mp4fragment ${this.fragmentedOutputPath} ${fragmentedVideoFile}`;
+      const mp4fragmentCommand = `mp4fragment ${transcodeMedia} ${fragmentedVideoFile}`;
       exec(mp4fragmentCommand, (error, stdout, stderr) => {
         if (error) {
           console.error(`Error running mp4fragment: ${error.message}`);
