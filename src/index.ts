@@ -3,7 +3,7 @@ import { MediaPackager } from "./packager/media-packager";
 import { Transcoder } from "./transcoder/transcoder";
 
 const main = async () => {
-  const inputVideo = "src/input.mp4";
+  const inputVideo = "input.mp4";
   const outputDirectory = "output_folder";
   const outputDirectoryDash = "output_dash";
   const outputDirectoryFragment = "output_fragment";
