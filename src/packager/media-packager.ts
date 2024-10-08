@@ -53,6 +53,10 @@ export class MediaPackager {
 
 
   public async packageMedia(): Promise<string> {
+    if (fs.existsSync(this.dashOutputPath)) {
+      fs.rmSync(this.dashOutputPath, { recursive: true });
+    }
+
     const dashManifest = await this.packageDash();
     console.log("Packaging successfully completed");
 
