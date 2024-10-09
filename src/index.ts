@@ -2,7 +2,7 @@ import { TranscodeConfig } from "./entities/transcode-config";
 import { MediaPackager } from "./packager/media-packager";
 import { Transcoder } from "./transcoder/transcoder";
 
-const main = async () => {
+const main = async (): Promise<string> => {
   const inputVideo = "input.mp4";
   const outputDirectory = "output_folder";
   const outputDirectoryDash = "output_dash";
@@ -34,6 +34,7 @@ const main = async () => {
 
   const packager = new MediaPackager(fragmentedFiles, outputDirectoryDash, '', false);
   const response = await packager.packageMedia();
+  return response;
 }
 
-main().catch(err => console.error(err)).then(() => console.log('Successfully Completed !!!'));
+main().catch(err => console.error(err)).then((response) => console.log('Successfully Completed !!!', response));
