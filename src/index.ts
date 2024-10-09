@@ -34,8 +34,6 @@ const main = async () => {
 
   const packager = new MediaPackager(fragmentedFiles, outputDirectoryDash, '', false);
   const response = await packager.packageMedia();
-
-  console.log(response);
 }
 
-main();
+main().catch(err => console.error(err)).then(() => console.log('Successfully Completed !!!'));
