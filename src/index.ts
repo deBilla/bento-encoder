@@ -37,4 +37,4 @@ const main = async (): Promise<string> => {
   return response;
 }
 
-main().catch(err => console.error(err)).then((response) => console.log('Successfully Completed !!!', response));
+main().catch(err => console.error(err)).then(() => console.log('Successfully Completed !!!'));
